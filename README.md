@@ -1,2 +1,2 @@
 # azure-agic-deployment
-Script for deploying Azure application gateway ingress controller on K8s
+Shell script for deploying an Azure Application Gateway Ingress Controller on an existing AKS cluster.
