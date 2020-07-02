@@ -12,16 +12,6 @@ appGWResourceGroupID=$(az group show --name $resourceGroup --query id -o tsv)
 nodeResourceGroup=$(az aks show --resource-group $resourceGroup --name $clusterName --query nodeResourceGroup -o tsv)
 spn=$(az aks show -g $resourceGroup -n $clusterName --query servicePrincipalProfile.clientId -o tsv)
 
-echo "subscription: $subscriptionId"
-echo "selector: $selector"
-echo "resourceGroup: $resourceGroup"
-echo "cluster: $clusterName"
-echo "apiAddr: $apiServerAddress"
-echo "application Gateway: $appGWid"
-echo "application Gateway RG ID: $appGWResourceGroupID"
-echo "node resourcegroup: $nodeResourceGroup"
-echo "SPN client ID: " $spn
-
 # add cluster to kube context
 az aks get-credentials --resource-group $resourceGroup --name $clusterName --admin --overwrite-existing 
 kubectl config get-contexts
