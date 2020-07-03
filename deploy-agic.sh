@@ -1,7 +1,7 @@
 az account set -s $subscriptionId && az account show
 az aks list -o table
 
-# DYNAMIC VARIABLES AKS (only work with a single cluster in the subscription)
+# DYNAMIC VARIABLES AKS (only work with a single or the first cluster in the subscription)
 ####################################################################################
 resourceGroup=$(az aks list --query [0].resourceGroup -o tsv)
 clusterName=$(az aks list --query [0].name -o tsv)
